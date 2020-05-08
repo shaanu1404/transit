@@ -4,8 +4,8 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-app.get('/', (request, response, next) => {
-  response.sendFile(path.join(__dirname, 'template/index.html'));
+app.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname, 'template/index.html'));
 });
 
 app.get('/generic', (req, res, next) => {
@@ -18,4 +18,4 @@ app.get('/elements', (req, res, next) => {
 
 const PORT =  process.env.port || 5000;
 
-app.listen(PORT, () => console.log('Server started in port ' + PORT));
+app.listen(PORT, console.log('Server started in port ' + PORT));
